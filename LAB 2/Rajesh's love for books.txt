@@ -1,0 +1,107 @@
+Rajesh is a bibliophile. He not just loves reading books, but also keeps them well organized. He has a lot of old books with him which he now wants to organize properly. For this, he has bought 2 new and unique wooden cuboidal book shelves of dimensions l x b x h - one of which is open from only one end(i.e open from one of the b x h sides) and the other one is open from both the ends(i.e. open from both the b x h sides).
+
+We call these as vertical and horizontal book shelves respectively. You can add or remove a book only from the top of the vertical bookshelf. Unlike the vertical one, in the horizontal bookshelf you can add a book only from the 'end' and remove a book only from the 'start' of the bookshelf. Rajesh needs your help to organize these books.
+
+Create a class Book having data members : title, author, year and price. Create another abstract class Bookshelf which should be able to store a lot of books, and should have the functions:
+
+1) addBook() - Add a book to the shelf.
+2) removeBook() - Remove a book from the shelf. Print 'e' if the shelf is empty.
+3) checkEmpty() - Check if the shelf is empty.
+4) list() - List the books in the shelf. Print 'e' if the shelf is empty.
+5) findCheap() - Find the cheapest book 'before' every book (STRICTLY CHEAPER than the current book) in the shelf and print its price. Note that 'before' is according to the order of deletion from the shelf. Print -1 if there is no such book. Print 'e' if the shelf is empty.
+6) reverseUnique() - Reverse the order and insert the books back in the SAME bookshelf after removing all the duplicates.
+
+Create 2 new classes VerticalBookshelf and HorizontalBookshelf , one for each of the bookshelves. These classes should be inherited from the class Bookshelf and the above specified functions (except checkEmpty()) should be implemented only in the derived classes. checkEmpty() function should be implemented in Bookshelf class.
+
+Note:
+1) Use of STL is NOT allowed.
+2) Implement these bookshelves using linked lists.(Use of arrays is not permitted for the implementation of these bookshelves).
+3) For reverseUnique(), use new instances of VerticalBookshelf/HorizontalBookshelf classes as the auxillary space.(Use of arrays is not permitted for this function).
+4) Make use of function overriding.
+5) Duplicates will be present in the data.
+6) You can access the books from the bookshelf only using the 4 functions : addBook(),removeBook(), list() and checkEmpty(). You CANNOT access the books of the bookshelf in any other way.
+
+Below are the operations that you need to perform on these bookshelves. The example at the end would bring in more clarity.
+
+1) ADD x t a 1993 250 : Add the book 't a 1993 250' to the 'x' shelf.
+2) REMOVE n x : Remove n books from the 'x' bookshelf.
+3) LIST x : List the books which are currently present in the x bookshelf.
+4) FINDC x : Perform findCheap() on the x bookshelf.
+5) REVUNI x : Perform reverseUnique() on the x bookshelf.
+where x can be h/v for horizontal/vertical respectively.
+
+Input Format
+
+Q
+ADD v title_1 author_1 year_1 price_1
+ADD v title_2 author_2 year_2 price_2
+ADD h title_3 author_3 year_3 price_3
+ADD v title_4 author_4 year_4 price_4
+ADD h title_5 author_5 year_5 price_5
+ADD h title_6 author_6 year_6 price_6
+ADD h title_7 author_7 year_7 price_7
+ADD h title_7 author_7 year_7 price_7
+ADD v title_4 author_4 year_4 price_4
+ADD v title_5 author_5 year_5 price_5
+ADD v title_8 author_8 year_8 price_8
+REMOVE 3 h
+REMOVE 2 v
+LIST h
+LIST v
+
+Constraints
+
+1 <= Q <= 50, where Q is the number of queries.
+Book title is a single word
+author is a single word
+price is an integer
+Output Format
+
+name_7,author_7,year_7,price_7
+name_7,author_7,year_7,price_7
+name_4,author_4,year_4,price_4
+name_4,author_4,year_4,price_4
+name_2,author_2,year_2,price_2
+name_1,author_1,year_1,price_1
+
+Sample Input 0
+
+17
+ADD v b123 abc 1998 300
+ADD v b234 pqr 2000 600
+ADD h b234 pqr 2000 600
+ADD v b456 xyz 2002 250
+ADD v b456 xyz 2002 250
+ADD h b456 xyz 2002 250
+ADD h b123 abc 1998 300
+ADD v b567 efg 1991 995
+ADD v b567 efg 1991 995
+ADD h b678 hij 2005 1590
+ADD h b567 efg 1991 995
+FINDC v
+FINDC h
+REMOVE 3 v
+REMOVE 3 h
+LIST h
+LIST v
+Sample Output 0
+
+-1,-1,-1,-1,250,250
+-1,-1,250,250,250
+b678,hij,2005,1590
+b567,efg,1991,995
+b456,xyz,2002,250
+b234,pqr,2000,600
+b123,abc,1998,300
+Sample Input 1
+
+5
+ADD v a x 1998 3
+ADD v b y 2000 2
+ADD v c z 1995 1
+FINDC h
+FINDC v
+Sample Output 1
+
+e
+-1,1,1

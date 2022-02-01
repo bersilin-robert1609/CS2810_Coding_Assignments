@@ -1,0 +1,83 @@
+Design a class named Matrix having 3 private member variables as below.
+
+rows - To store number of rows
+columns - To store number of columns
+mat - A reference to 2D array to store actual matrix
+The default constructor of the class should initialize rows and columns to 0 and mat to empty matrix.
+
+The parameterized constructor Matrix(int rows, int columns) should initialize Matrix's rows and columns with passed rows and columns. Also it should initialize the 2D array mat with default value 0.
+
+Define one more parameterized constructor Matrix(int rows, int columns, int** matrix) which should initialize Matrix's rows and columns with passed rows and columns. Also it should initialize the 2D array mat with the passed 2D array matrix.
+
+The class should also have following functions:
+
+void setValue(int row,int col,int val) - To set a particular value of matrix
+int getValue(int row,int col) - To get a particular value of matrix
+int getNoRows() - Return matrix’s number of rows
+int getNoColumns() - Return matrix's number of columns
+Apart from the above, the class should have 4 functions:
+
+void printSpiral() - Prints the elements of this matrix in spiral order. The spiral begins at the top left corner of the input matrix, and prints the elements it encounters, while looping towards the centre of this matrix, in a clockwise manner.
+int trace() - Return trace of the matrix if possible. If it is not possible, then return -1. Trace is defined as the sum of the diagonal elements of a square matrix.
+bool checkTriangular() - Check if the matrix is triangular or not. If it is triangular, return true, else return false. A triangular matrix is defined as a special type of square matrix where all the values above or below the diagonal are zero.
+bool isSpecialMatrix() - A matrix is a special matrix if the sum of each row is integer 'x' and sum of each column is integer 'y' and 'x' equals 'y'. Return true if the matrix is special, else return false.
+Input Format
+
+First line contains two space separated integers, N and M, number of rows and number of columns in the matrix.
+
+Next N lines contains M space separated integers, elements of the matrix.
+
+Next line will contain Q - the total number of operations/commands.
+
+The next Q lines can be one of the following commands.
+
+1 -> This command should print the given matrix in spiral form. The elements should be printed space separated.
+2 -> This command should print the trace of Matrix.
+3 -> This command should print true if the matrix is triangular, else it should print false.
+4 -> This command should print true if the matrix is special matrix, else it should print false.
+Constraints
+
+1<= N,M <1000
+0<= elements of matrix <=100
+1<= Q < 100
+
+Output Format
+
+For each command/operation print the output as described earlier on new line.
+
+Sample Input 0
+
+3 3
+2 4 6
+8 10 22
+2 4 6
+4
+1
+2
+3
+4
+Sample Output 0
+
+2 4 6 22 6 4 2 8 10
+18
+false
+false
+Sample Input 1
+
+5 5
+13 0 0 0 0
+0 13 0 0 0
+0 0 13 0 0
+0 0 0 13 0
+0 0 0 0 13
+4
+4
+1
+2
+3
+Sample Output 1
+
+true
+13 0 0 0 0 0 0 0 13 0 0 0 0 0 0 0 13 0 0 0 13 0 0 0 13
+65
+true
