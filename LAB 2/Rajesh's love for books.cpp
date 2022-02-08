@@ -54,6 +54,7 @@ bool isDuplicate(Book* b1, Book* b2){
 
 class Bookshelf {                                                                       //Bookshelf - base class
     public:
+        Bookshelf();
         virtual void addBook(string title, string author, int year, double price)=0;    //Adding book
         virtual void removeBook()=0;                                                    //Removing book
         bool checkEmpty();                                                              //Checking if shelf is empty
@@ -62,9 +63,14 @@ class Bookshelf {                                                               
         virtual void reverseUnique()=0;                                                 //Reversing only the unique elements
         Book* getHead(){ return head;}
     protected: 
-        Book* head = NULL;
-        Book* tail = NULL;
+        Book* head;
+        Book* tail;
 };
+
+Bookshelf::Bookshelf(){
+    this->head = NULL;
+    this->tail = NULL;
+}
 
 bool Bookshelf::checkEmpty(){
     

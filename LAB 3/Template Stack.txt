@@ -1,0 +1,157 @@
+Your task is to implement a Stack using Templates. Stack implementation should be based on Doubly Linked List (implemented using templates).
+
+Step 1: - Implementation of Doubly Linked List using Template. The operations to be performed on the Doubly Linked List are as follows:
+
+push_front - Insert an element to the front of the list.
+push_end - Insert an element to the end of the list.
+pop_front - Delete an element from the front of the list and return it.
+pop_end - Delete an element from the end of the list and return it.
+size - Returns the number of elements in the list.
+Note:- Only these operations should be supported as public, and all the additional members must be private.
+
+Step 2:- Implementation of Template Stack using DLL Template. The operations to be performed on the stack are as follows:
+
+Note:- These methods should be declared as public for the Stack.
+
+Push an element to the Stack
+Pop an element from the Stack and return it
+Return the top element of the Stack
+return the size of Stack
+Compare( n ) which returns true if n > stackTop else returns false.
+Note:- If the Stack is not built by the given list ADT then you will be given zero marks. Accessing the pointers of the List inside the stack is prohibited. You must use the designed List API for all operations.
+
+Step 3:- Now use this Stack Template to encrypt the input. The algorithm to be followed for encryption is as follows-
+
+while( current element != end)
+
+If the stack is empty, push the current element to the stack and update the current element to point to the next element.
+If current element > StackTop, push the current element to the stack and update the current element to point to the next element.
+If current element <= StackTop , pop StackTop and print it.
+If current element reaches end then pop all the elements from stack (if any) and print them.
+Note:- The encryption must be done using the stack template, otherwise you will be given zero marks. You are not allowed to use STL.
+
+Input Format
+
+First-line contains 2 space-separated values N and T.
+
+N denotes the number of elements.
+
+T denotes the type of elements.( I = int, C = char, F = float )
+
+Second line contains N space separated elements.
+
+Constraints
+
+0 < N < 10000
+
+Char type has only a single character.
+
+Int will be 0 <= x <= 1000
+
+Float will be 0 <= y <= 100 (upto 2 decimal places only)
+
+Output Format
+
+Print in a single line, without any spaces in-between.
+
+Examples:
+
+Input 1:
+
+7 I
+
+9 13 4 7 5 2 3
+
+Output 1:
+
+13975432
+
+Explanation:
+
+1) stack -> empty
+
+current element = 9
+
+push 9 to stack.
+
+2) stack -> 9
+
+current element = 13
+
+push 13 to stack.
+
+3) stack -> 9 , 13
+
+current element = 4
+
+pop 13 from stack and print.
+
+pop 9 from stack and print.
+
+push 4 to stack.
+
+4) stack -> 4
+
+current element = 7
+
+push 7 to stack
+
+5) stack -> 4 , 7
+
+current element = 5
+
+pop 7 from stack and print.
+
+push 5 to stack.
+
+6) stack -> 4 , 5
+
+current element = 2
+
+pop 5 from stack and print.
+
+pop 4 from stack and print.
+
+push 2 to stack.
+
+7) stack -> 2
+
+current element = 3
+
+push 3 to stack.
+
+8) stack -> 2 , 3
+
+current element = end
+
+pop 3 from stack and print.
+
+pop 2 from stack and print.
+
+Input 2:
+
+7 C
+
+g k s f p m b
+
+Output 2:
+
+skgpmfb
+
+Input 3:
+
+3 F
+
+1.56 2.45 1.2
+
+Output 3:
+
+2.451.561.2
+
+Sample Input 0
+
+9 I
+100 58 15 51 54 34 53 65 68 
+Sample Output 0
+
+1005854516865533415
