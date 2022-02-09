@@ -94,7 +94,7 @@ void Doubly_linked_list<T>::push_end(T val)
     tail->next = newptr; // general case
     newptr->prev = tail;
     tail = newptr;
-    ;
+    
     return;
 }
 
@@ -111,13 +111,13 @@ T Doubly_linked_list<T>::pop_front()
     if (head == NULL)
     { // Incase it becomes empty
         tail = NULL;
-        // free newptr;
+        delete newptr;
         return temp;
     }
     head->prev = NULL; // general case
 
     newptr->next = NULL;
-    // free newptr;
+    delete newptr;
 
     return temp;
 }
@@ -135,13 +135,13 @@ T Doubly_linked_list<T>::pop_end()
     if (tail == NULL)
     { // Incase it becomes empty
         head = NULL;
-        // free newptr;
+        delete newptr;
         return temp;
     }
     tail->next = NULL; // general case
 
     newptr->prev = NULL;
-    // free newptr;
+    delete newptr;
 
     return temp;
 }
