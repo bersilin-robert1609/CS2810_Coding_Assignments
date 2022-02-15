@@ -1,0 +1,94 @@
+Your task is to implement a Printer Class using Templates. Printer implementation should be based on Queue (implemented using templates).
+
+Step 1: - Implementation of a queue interface using templates.
+The class Queue should have the following member functions.
+
+enqueue - Insert an element to the end of the queue.
+dequeue - Delete an element from the front of the queue and return it.
+size - Returns the number of elements in the queue
+isEmpty - Returns true if the queue is empty, else false.
+Note:- Only these operations should be supported as public, and all the additional members must be private.
+
+Step 2:- Implementation of Printer using Queue Template
+Printer will have the following member variables.
+
+queue - It will store the documents to be printed
+capacity - It will store the maximum size of the printer queue.
+ink - It will store the ink value in the printer
+The class Printer should have the following member functions.
+
+Printer(int capacity, int ink) - Parameterized constructor to initialize a Printer object. The given capacity will be the maximum size of the queue of Printers and the given ink will be the ink of the Printer.
+addDocument(<T> document) - Enqueue a document to the queue of the Printer. The document is represented by using data type T.
+<T> printDocument - Dequeue a document from the queue of the Printer and return it. While printing each document one unit of ink will be used.
+fillInk(int ink) -To update the ink of the printer with the given Ink. Note that earlier ink value should be overriden with the input ink.
+Note:- These methods should be declared as public for the Printer.
+
+Step 3:- Now define Custom Exceptions Classes corresponding to each of the following exceptions in the Printer Class.
+
+InsufficientInk Class- This exception will be thrown by printDocument if the ink is insufficient to print the documents in the queue of the printer. The ink is said to be insufficient if there is no ink to print the document.
+PrinterBusy Class- This exception will be thrown by the addDocument if the queue of the printer can’t accommodate the current document. This situation will arise when size of the queue of Printer is equal to the capacity of Printer. In this case, the current document will be rejected by printer and will not be added to the printer queue.
+NoDocument Class- This exception will be thrown by the printDocument if there is no document in the printer queue. This situation will arise when the Printer queue is empty.
+The custom exceptions must have parameterized constructors with the parameters as below.
+
+InsufficientInk(string reason) - While throwing an InsufficientInk exception, the user must pass reason as ‘INSUFFICIENT_INK”.
+PrinterBusy(string reason) - While throwing a PrinterBusy exception, the user must pass the reason as “PRINTER_BUSY”.
+NoDocument(string reason) - While throwing a NoDocument exception, the user must pass the reason as “NO_DOCUMENT”.
+Input Format
+
+First line contains three space-separated values, M, N, and T.
+M and N denote the capacity and ink of the printer(in ml).
+T denotes the type of documents.( I = int, C = char, F = float )
+
+Next line will contain Q - the total number of operations/commands to printers. The next Q lines can be one of the following command pairs.
+1 <document> -> This command should add the document to the queue of the Printer.
+2 -> This command should print the document which is in front of the printer queue by using 1ml ink.
+3 <ink> -> This command should refill the printer with the given ink amount.
+
+Sample Input 1
+
+2  2  I		 //Initialize queue of printer of int documents, with capacity 2 and ink 2  
+10              //number of operations/commands  
+1  11          	//Adds the document to printer queue  
+1  12          	//Adds the document to printer queue  
+1  13          	//Throws exception PrinterBusy  
+2              	//Prints the document which is in front of the printer queue  
+2              	//Prints the document which is in front of the printer queue  
+2              	//Throws exception NoDocument  
+1  14           //Adds the document to printer queue  
+2              	//since ink=0, Throws exception InsufficientInk  
+3  5          	//Refills printer ink to 5  
+2              	//Prints the document which is in front of the printer queue
+Sample Output 1
+
+PRINTER_BUSY   
+11  
+12  
+NO_DOCUMENT  
+INSUFFICIENT_INK  
+14
+Constraints
+
+1<=M<=100
+0<=N<=100
+1<=Q<=100
+T is I or C or F
+
+Output Format
+
+For required command/operation print the output as described earlier on new line.
+
+Sample Input 0
+
+4 2 C
+6
+1 A
+1 B
+1 C
+2
+2
+2
+Sample Output 0
+
+A
+B
+INSUFFICIENT_INK
