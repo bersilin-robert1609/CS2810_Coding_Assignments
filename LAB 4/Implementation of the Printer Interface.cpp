@@ -199,7 +199,7 @@ bool Template_Queue<T>::isEmpty()
 {
     // checks of the queue is empty or not, returns TRUE if empty
 
-    if (size == 0)
+    if (dll->size() <= 0)
         return true;
     else
         return false;
@@ -402,21 +402,21 @@ int main()
     {
         Printer<int> *ourPrinter = new Printer<int>(capacity, ink);
         query_function(ourPrinter);
-        delete ourPrinter;
+        //delete ourPrinter;
         break;
     }
     case 'C':
     {
         Printer<char> *ourPrinter = new Printer<char>(capacity, ink);
         query_function(ourPrinter);
-        delete ourPrinter;
+        //delete ourPrinter;
         break;
     }
     case 'F':
     {
         Printer<float> *ourPrinter = new Printer<float>(capacity, ink);
         query_function(ourPrinter);
-        delete ourPrinter;
+        //delete ourPrinter;
         break;
     }
     }
