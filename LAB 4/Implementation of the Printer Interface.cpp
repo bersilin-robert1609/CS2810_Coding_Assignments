@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 /* Used Doubly_Linked_List template implemented in last lab */
